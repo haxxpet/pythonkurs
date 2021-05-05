@@ -1,4 +1,3 @@
-#!/usr/bin/python
 # Michael Jarnling <email>
 
 # IMPORTS
@@ -19,12 +18,12 @@ str_notice = "notice"
 def openfile(filepath): 
     try:
         file = open(filepath, "r")
+    except:
+        sys.exit("Could not open the specified file")
+    else:
         global lines
         lines = file.read().split('\n')
-        #lines = file.readlines()
         file.close()
-    except:
-        print("Could not open file:", filepath)
 
 ### statistics
 ## output:
@@ -75,16 +74,14 @@ def fetch_notice():
             continue
 
 ## Assign parameters
-#print(str(sys.argv))
-#print(len(sys.argv))
+# check if there are 3 parameters (scriptname, filepath and action)
 if len(sys.argv) == 3:
     # filepath
     fpath=str(sys.argv[1])
-    #print(fpath)
     openfile(fpath)
     # action
     action=str(sys.argv[2])
-    #print(action)
+    # check which action
     if action == "statistics":
         stats()
     elif action == "error":
@@ -92,6 +89,6 @@ if len(sys.argv) == 3:
     elif action == "notice":
         fetch_notice()
     else:
-        print("No valid action supplied (statistics, error, notice)")
+        print("No valid action specified (statistics, error, notice)")
 else:
-    print("Not enough parameters supplied (filepath, action)")
+    print("Not enough parameters specified (filepath, action)")
