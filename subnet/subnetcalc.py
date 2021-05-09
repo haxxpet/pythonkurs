@@ -29,7 +29,7 @@ else:
 
 if action == "mask":
     mask = str(sys.argv[2])
-    print("Subnet with mask /",mask,"\n")
+    print(f"Subnet with mask /{mask}\n")
     for line in mskdb:
         # split each line: 0=mask, 1=addresses, 2=hosts, 3=netmask
         line = line.split(";")
