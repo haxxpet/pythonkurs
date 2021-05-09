@@ -41,6 +41,11 @@ def sin_this(x):
     ent_input.delete(0, tk.END)
     ent_input.insert(0, summa)
 
+def fact_this(x):
+    summa = math.factorial(int(x)) # float is not supported
+    ent_input.delete(0, tk.END)
+    ent_input.insert(0, summa)
+
 ### window and frame
 ## window
 window = tk.Tk()
@@ -78,6 +83,7 @@ btn_sqrt = tk.Button(master=frm_body, text="sqrt")
 btn_pow = tk.Button(master=frm_body, text="pow")
 btn_cos = tk.Button(master=frm_body, text="cos")
 btn_sin = tk.Button(master=frm_body, text="sin")
+btn_fact = tk.Button(master=frm_body, text="!")
 btn_calc = tk.Button(master=frm_calc, text="CALCULATE", width="27") # fix border
 # pack em
 btn_add.pack(side=tk.LEFT)
@@ -88,6 +94,7 @@ btn_sqrt.pack(side=tk.LEFT)
 btn_pow.pack(side=tk.LEFT)
 btn_cos.pack(side=tk.LEFT)
 btn_sin.pack(side=tk.LEFT)
+btn_fact.pack(side=tk.LEFT)
 btn_calc.pack()
 
 ### interactive
@@ -98,7 +105,7 @@ def fnc_click(event):
     userinput = ent_input.get()
     if userinput == "quit":
         exit("Bye bye!")
-    operators = ["+","-","/","*","pow","sqrt","cos","sin"]
+    operators = ["+","-","/","*","pow","sqrt","cos","sin","!"]
     for op in operators:
         if op not in userinput:
             continue
@@ -125,6 +132,11 @@ def fnc_click(event):
             elif op == "sin":
                 try: # check if there are any values
                     sin_this(foo[0])
+                except: # if not, print error
+                    lbl_error["text"] = "Error - Missing a value"
+            elif op == "!":
+                try: # check if there are any values
+                    fact_this(foo[0])
                 except: # if not, print error
                     lbl_error["text"] = "Error - Missing a value"
     if not check: # if we didn't find the operator, print an error
@@ -155,6 +167,9 @@ def cos_click(event):
 def sin_click(event):
     ent_input.insert(tk.END, "sin")
 
+def fact_click(event):
+    ent_input.insert(tk.END, "!")
+
 ## bind buttons
 # Button-1 = left mouse click
 # 2nd value is the function to pass this to
@@ -167,6 +182,7 @@ btn_sqrt.bind("<Button-1>", sqrt_click)
 btn_pow.bind("<Button-1>", pow_click)
 btn_cos.bind("<Button-1>", cos_click)
 btn_sin.bind("<Button-1>", sin_click)
+btn_fact.bind("<Button-1>", fact_click)
 
 # run it
 window.mainloop()
