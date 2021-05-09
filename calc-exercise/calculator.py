@@ -19,7 +19,7 @@ def calc_this(x,y,o):
         summa = float(x) / float(y)
     elif o == "*":
         summa = float(x) * float(y)
-    elif o == "pow":
+    elif o == "^":
         summa = float(x) ** float(y)
     show_sum(summa)
 
@@ -42,12 +42,14 @@ def fact_this(x):
 ### window and frame
 ## window
 window = tk.Tk()
+window.title("MCALv1")
 ## frames
-frm_head = tk.Frame(master=window, width=30)
-frm_input = tk.Frame(master=window, width=30)
-frm_body = tk.Frame(master=window, width=30)
-frm_calc = tk.Frame(master=window, width=30)
-frm_bot = tk.Frame(master=window, width=30)
+max_width = 45
+frm_head = tk.Frame(master=window, width=max_width)
+frm_input = tk.Frame(master=window, width=max_width)
+frm_body = tk.Frame(master=window, width=max_width)
+frm_calc = tk.Frame(master=window, width=max_width)
+frm_bot = tk.Frame(master=window, width=max_width)
 # pack em
 frm_head.pack()
 frm_input.pack()
@@ -56,14 +58,14 @@ frm_calc.pack()
 frm_bot.pack()
 
 ## labels
-lbl_title = tk.Label(master=frm_head, text="Michaels Calculator", bg="black", fg="white", width=30)
-lbl_error = tk.Label(master=frm_bot, text="", fg="red", width=30)
+lbl_title = tk.Label(master=frm_head, text="Michaels Calculator", bg="black", fg="white", width=max_width)
+lbl_error = tk.Label(master=frm_bot, text="", fg="red", width=max_width)
 # pack em
 lbl_title.pack()
 lbl_error.pack()
 
 ## entry box
-ent_input = tk.Entry(master=frm_input, width="30")
+ent_input = tk.Entry(master=frm_input, width=max_width)
 # pack em
 ent_input.pack()
 
@@ -73,11 +75,11 @@ btn_sub = tk.Button(master=frm_body, text="-")
 btn_multi = tk.Button(master=frm_body, text="*")
 btn_div = tk.Button(master=frm_body, text="/")
 btn_sqrt = tk.Button(master=frm_body, text="sqrt")
-btn_pow = tk.Button(master=frm_body, text="pow")
+btn_pow = tk.Button(master=frm_body, text="^")
 btn_cos = tk.Button(master=frm_body, text="cos")
 btn_sin = tk.Button(master=frm_body, text="sin")
 btn_fact = tk.Button(master=frm_body, text="!")
-btn_calc = tk.Button(master=frm_calc, text="CALCULATE", width="27") # fix border
+btn_calc = tk.Button(master=frm_calc, text="CALCULATE", width=42) # fix border
 # pack em
 btn_add.pack(side=tk.LEFT)
 btn_sub.pack(side=tk.LEFT)
@@ -98,7 +100,7 @@ def fnc_click(event):
     userinput = ent_input.get()
     if userinput == "quit":
         exit("Bye bye!")
-    operators = ["+","-","/","*","pow","sqrt","cos","sin","!"]
+    operators = ["+","-","/","*","^","sqrt","cos","sin","!"]
     for op in operators:
         if op not in userinput:
             continue
@@ -151,7 +153,7 @@ def sqrt_click(event):
     ent_input.insert(tk.END, "sqrt")
 
 def pow_click(event):
-    ent_input.insert(tk.END, "pow")
+    ent_input.insert(tk.END, "^")
 
 def cos_click(event):
     ent_input.insert(tk.END, "cos")
