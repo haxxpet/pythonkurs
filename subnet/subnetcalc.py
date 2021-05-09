@@ -1,7 +1,6 @@
 import sys
 
-## input file
-#filename = "mskdb"
+# all the masks
 mskdb = [
     "30;4;2;255.255.255.252",
     "29;8;6;255.255.255.248",
@@ -20,15 +19,8 @@ mskdb = [
     "16;65536;65534;255.255.0.0"
 ]
 
-## constants
+# output header
 header = "Mask\tAddresses\tHosts\tNetmask"
-
-# # open file - replaced by infile list
-# def openfile():
-#     file = open(filename, "r")
-#     global lines
-#     lines = file.read().split('\n')
-#     file.close()
 
 if len(sys.argv[0:]) > 1:
     action = str(sys.argv[1])
@@ -38,7 +30,6 @@ else:
 if action == "mask":
     mask = str(sys.argv[2])
     print("Subnet with mask /",mask,"\n")
-    #openfile()
     for line in mskdb:
         # split each line: 0=mask, 1=addresses, 2=hosts, 3=netmask
         line = line.split(";")
@@ -51,7 +42,6 @@ if action == "mask":
 elif action == "addresses":
     addresses = int(sys.argv[2])
     print("Subnets with addresses equal to or greater than",addresses,"\n")
-    #openfile()
     print(header)
     for line in mskdb:
         line = line.split(";")
@@ -63,7 +53,6 @@ elif action == "addresses":
 elif action == "hosts":
     hosts = int(sys.argv[2])
     print("Subnets with hosts equal to or greater than",hosts,"\n")
-    #openfile()
     print(header)
     for line in mskdb:
         line = line.split(";")
@@ -74,8 +63,7 @@ elif action == "hosts":
             continue
 elif action == "netmask":
     netmask = str(sys.argv[2])
-    print("Subnet with mask /",netmask,"\n")
-    #openfile()
+    print("Subnet with netmask /",netmask,"\n")
     for line in mskdb:
         # split each line: 0=mask, 1=addresses, 2=hosts, 3=netmask
         line = line.split(";")
