@@ -1,5 +1,5 @@
 # pythonkurs
-A colleciton of school projects and other small stuff
+A collection of school projects and other small stuff
 
 ## loganalyzer
 Simple log analyzer for training
