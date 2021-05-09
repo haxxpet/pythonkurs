@@ -42,7 +42,7 @@ def fact_this(x):
 ### window and frame
 ## window
 window = tk.Tk()
-window.title("MCALv1")
+window.title("MCALC v1")
 ## frames
 max_width = 45
 frm_head = tk.Frame(master=window, width=max_width)
