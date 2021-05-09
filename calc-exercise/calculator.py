@@ -8,9 +8,6 @@ def show_sum(x):
 
 ### arithmetic functions
 def calc_this(x,y,o):
-    #print(x) 
-    #print(y)
-    #print(o)
     if o == "+":
         summa = float(x) + float(y)
     elif o == "-":
@@ -21,30 +18,23 @@ def calc_this(x,y,o):
         summa = float(x) * float(y)
     elif o == "pow":
         summa = float(x) ** float(y)
-        #summa = math.pow(int(x),int(y))
-    #ent_input.delete(0, tk.END)
-    #ent_input.insert(0, int(summa))
     show_sum(summa)
 
 def square_this(x):
     summa = math.sqrt(float(x))
-    ent_input.delete(0, tk.END)
-    ent_input.insert(0, summa)
+    show_sum(summa)
 
 def cos_this(x):
     summa = math.cos(float(x))
-    ent_input.delete(0, tk.END)
-    ent_input.insert(0, summa)
+    show_sum(summa)
 
 def sin_this(x):
     summa = math.sin(float(x))
-    ent_input.delete(0, tk.END)
-    ent_input.insert(0, summa)
+    show_sum(summa)
 
 def fact_this(x):
     summa = math.factorial(int(x)) # float is not supported
-    ent_input.delete(0, tk.END)
-    ent_input.insert(0, summa)
+    show_sum(summa)
 
 ### window and frame
 ## window
