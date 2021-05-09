@@ -9,4 +9,4 @@ A subnet calculator / information tool for when you need to find the right subne
 ## calc-exercise
 A course exercise to make a calculator.
 Needs tk for the GUI - to install, run:
-'pacman -S tk'
+`pacman -S tk`
