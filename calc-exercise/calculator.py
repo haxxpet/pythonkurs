@@ -1,12 +1,15 @@
+#### Michael Jarnling
+
+# imports
 import tkinter as tk 
 import math
 
-### present sum
+# present sum
 def show_sum(x):
     ent_input.delete(0, tk.END)
     ent_input.insert(0, x)
 
-### arithmetic functions
+# arithmetic functions
 def calc_this(x,y,o):
     if o == "+":
         summa = float(x) + float(y)
@@ -101,7 +104,6 @@ def fnc_click(event):
             continue
         elif op in userinput:
             check=True # set true if we found the operator
-            #print(op)
             foo = userinput.split(op)
             if op in operators[0:5]:
                 try: # check if there are any values
@@ -176,3 +178,6 @@ btn_fact.bind("<Button-1>", fact_click)
 
 # run it
 window.mainloop()
+
+## Things to fix:
+# Negative numbers
