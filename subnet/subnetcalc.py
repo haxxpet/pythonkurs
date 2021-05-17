@@ -63,7 +63,7 @@ elif action == "hosts":
             continue
 elif action == "netmask":
     netmask = str(sys.argv[2])
-    print("Subnet with netmask /",netmask,"\n")
+    print("Subnet with netmask",netmask,"\n")
     for line in mskdb:
         # split each line: 0=mask, 1=addresses, 2=hosts, 3=netmask
         line = line.split(";")
