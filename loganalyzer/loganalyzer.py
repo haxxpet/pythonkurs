@@ -18,8 +18,9 @@ str_notice = "notice"
 def openfile(filepath): 
     try:
         file = open(filepath, "r")
-    except:
-        sys.exit("Could not open the specified file")
+    except FileNotFoundError:
+        str_exit = "Could not open the specified file: "+filepath
+        sys.exit(str_exit)
     else:
         global lines
         lines = file.read().split('\n')
@@ -91,4 +92,4 @@ if len(sys.argv) == 3:
     else:
         print("No valid action specified (statistics, error, notice)")
 else:
-    print("Not enough parameters specified (filepath, action)")
+    print("Not enough or invalid amount of parameters specified. \nRequires: filepath action (statistics, error, notice)")
