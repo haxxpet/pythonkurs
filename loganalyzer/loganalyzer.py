@@ -1,11 +1,12 @@
-# Michael Jarnling <email>
+# Michael Jarnling michael.jarnling@edu.edugrade.se
 
-# IMPORTS
+## IMPORTS
+# Because of sys.args
 import sys
 
 # CONTANTS
-str_error = "error"
-str_notice = "notice"
+str_error = "[error]"
+str_notice = "[notice]"
 
 #### Script
 ### Usage: python loganalyzer.py filepath action
@@ -53,7 +54,7 @@ def stats():
 def fetch_error():
     for line in lines:
         if str_error in line:
-            line = line.split("[error]")
+            line = line.split(str_error)
             date = line[0]
             msg = line[1]
             print(date,msg)
@@ -67,7 +68,7 @@ def fetch_error():
 def fetch_notice():
     for line in lines:
         if str_notice in line:
-            line = line.split("[notice]")
+            line = line.split(str_notice)
             date = line[0]
             msg = line[1]
             print(date,msg)
